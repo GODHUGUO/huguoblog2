@@ -68,10 +68,22 @@
 
         <!-- Bouton décoratif -->
         <div class="absolute bottom-4 left-4 z-10">
-          <span class="flex items-center gap-2 bg-white/90 group-hover:bg-white text-gray-900 text-xs font-semibold px-4 py-2 rounded-full transition-all duration-200 group-hover:shadow-md">
+          <span class="flex items-center gap-2 bg-white/90 border group-hover:bg-white text-gray-900 text-xs font-semibold px-4 py-2 rounded-full transition-all duration-200 group-hover:shadow-md">
             Lire la suite
           </span>
         </div>
+
+  
+
+
+
+
+
+
+
+
+
+
 
       </NuxtLink>
     </div>
