@@ -3,7 +3,7 @@ import { onAuthStateChanged, type User } from 'firebase/auth'
 export default defineNuxtRouteMiddleware(async (to) => {
   if (import.meta.server) return
 
-  const publicPages = ['/', '/login', '/register'];
+  const publicPages = ['/aboutme', '/login','/contact'];
   const isPublicPage = publicPages.includes(to.path);
 
   const { $auth } = useNuxtApp() as unknown as { $auth: ReturnType<typeof import('firebase/auth').getAuth> };
