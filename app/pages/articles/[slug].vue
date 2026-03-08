@@ -115,10 +115,10 @@ useHead({
 
     <!-- Section articles associés -->
     <section v-if="relatedArticles.length" class="bg-white px-20 py-12">
-      <div class="max-w-4xl mx-auto">
+      <div class="max-w-4xl mx-auto  px-14">
 
         <!-- En-tête avec flèches -->
-        <div class="flex items-center justify-between mb-8">
+        <div class="flex items-center justify-between mb-8 ">
           <h2 class="text-xl font-extrabold text-gray-900">
             Ceux-ci peuvent vous intéresser
           </h2>
@@ -153,7 +153,7 @@ useHead({
         </div>
 
         <!-- Carrousel -->
-        <div class="overflow-hidden">
+        <div class="overflow-hidden ">
           <div
             class="flex gap-4 transition-transform duration-500 ease-out"
             :style="`transform: translateX(-${slideOffset}px)`"

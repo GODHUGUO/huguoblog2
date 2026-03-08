@@ -51,15 +51,13 @@
       <!-- Actions droite -->
       <div class="flex items-center gap-3 ">
 
- <NuxtLink to="/" class="flex items-center gap-3">
-        <div
-          class="w-6 h-4 rounded-full flex items-center justify-center bg-[#A8F000] font-bold"
-        
-          aria-label="HuguoBlog logo"
-        >
-          
-        </div>
-      </NuxtLink>
+ <NuxtLink to="/" class="hidden md:flex items-center gap-3">
+  <div
+    class="w-6 h-4 rounded-full flex items-center justify-center bg-[#A8F000] font-bold"
+    aria-label="HuguoBlog logo"
+  >
+  </div>
+</NuxtLink>
 
         <!-- Se connecter (desktop) -->
         <NuxtLink
@@ -73,12 +71,13 @@
           </svg>
         </NuxtLink>
 
-  <NuxtLink to="/" class="flex items-center gap-3">
-        <div
-          class="w-6 h-4 rounded-full flex items-center justify-center bg-[#A8F000] font-bold"  aria-label="HuguoBlog logo"
-        >
-        </div>
-      </NuxtLink>
+ <NuxtLink to="/" class="hidden md:flex items-center gap-3">
+  <div
+    class="w-6 h-4 rounded-full flex items-center justify-center bg-[#A8F000] font-bold"
+    aria-label="HuguoBlog logo"
+  >
+  </div>
+</NuxtLink>
         <!-- Bouton hamburger (mobile) -->
         <button
           @click="toggleMenu"

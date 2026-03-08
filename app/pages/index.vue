@@ -23,10 +23,13 @@
 
     <!-- Grille d'articles -->
     <div v-else class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-      <article
+
+      <!-- ✅ Toute la carte est cliquable -->
+      <NuxtLink
         v-for="(article, index) in visibleArticles"
         :key="article._id"
-        class="group relative rounded-2xl overflow-hidden shadow-xl"
+        :to="`/articles/${article.slug}`"
+        class="group relative rounded-2xl overflow-hidden shadow-xl block cursor-pointer"
         :style="{ backgroundColor: getColor(index).bg, minHeight: '420px' }"
       >
 
@@ -63,17 +66,14 @@
           />
         </div>
 
-        <!-- Bouton -->
+        <!-- Bouton décoratif -->
         <div class="absolute bottom-4 left-4 z-10">
-          <NuxtLink
-            :to="`/articles/${article.slug}`"
-            class="flex items-center gap-2 bg-white/90 hover:bg-white text-gray-900 text-xs font-semibold px-4 py-2 rounded-full transition-all duration-200 hover:shadow-md"
-          >
+          <span class="flex items-center gap-2 bg-white/90 group-hover:bg-white text-gray-900 text-xs font-semibold px-4 py-2 rounded-full transition-all duration-200 group-hover:shadow-md">
             Lire la suite
-          </NuxtLink>
+          </span>
         </div>
 
-      </article>
+      </NuxtLink>
     </div>
 
     <!-- Voir plus -->
@@ -96,9 +96,6 @@ definePageMeta({
   layout: 'default'
 })
 
-/* -----------------------------
-   Couleurs des cartes
------------------------------ */
 const COLORS = [
   { bg: '#B5F23D', text: '#1a1a1a' },
   { bg: '#D8C4F0', text: '#1a1a1a' },
@@ -109,14 +106,8 @@ const COLORS = [
 
 const getColor = (index) => COLORS[index % COLORS.length]
 
-/* -----------------------------
-   Récupération des articles depuis MongoDB
------------------------------ */
 const { data: articles, pending, error } = await useFetch('/api/articles')
 
-/* -----------------------------
-   Pagination
------------------------------ */
 const INITIAL_COUNT = 6
 const showAll = ref(false)
 
