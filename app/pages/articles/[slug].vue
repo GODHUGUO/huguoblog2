@@ -75,21 +75,21 @@ useHead({
     </div>
 
     <!-- Article principal -->
-    <article v-else class="max-w-4xl mx-auto px-20 py-12 pt-24">
+    <article v-else class="max-w-4xl mx-auto px-4 sm:px-8 md:px-16 lg:px-20 py-8 pt-16 md:pt-24">
 
       <!-- Date -->
-      <p class="text-lg text-gray-400 mb-3">
+      <p class="text-sm md:text-lg text-gray-400 mb-3">
         Date de publication:
         <span class="font-bold text-[#111111]">{{ formatDate(article.publishDate) }}</span>
       </p>
 
       <!-- Titre -->
-      <h1 class="text-3xl font-extrabold leading-tight text-gray-900 mb-6 md:text-4xl">
+      <h1 class="text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight text-gray-900 mb-4 md:mb-6">
         {{ article.title }}
       </h1>
 
       <!-- Tags -->
-      <div class="flex flex-wrap gap-2 mb-6">
+      <div class="flex flex-wrap gap-2 mb-4 md:mb-6">
         <span
           v-for="tag in article.tags"
           :key="tag"
@@ -100,7 +100,7 @@ useHead({
       </div>
 
       <!-- Image hero -->
-      <div v-if="article.featuredImage" class="w-full rounded-2xl overflow-hidden mb-8" style="height: 500px;">
+      <div v-if="article.featuredImage" class="w-full rounded-2xl overflow-hidden mb-6 md:mb-8" style="height: clamp(200px, 40vw, 500px);">
         <img
           :src="article.featuredImage"
           :alt="article.title"
@@ -114,12 +114,12 @@ useHead({
     </article>
 
     <!-- Section articles associés -->
-    <section v-if="relatedArticles.length" class="bg-white px-20 py-12">
-      <div class="max-w-4xl mx-auto  px-14">
+    <section v-if="relatedArticles.length" class="bg-white px-4 sm:px-8 md:px-16 lg:px-20 py-8 md:py-12">
+      <div class="max-w-4xl mx-auto">
 
         <!-- En-tête avec flèches -->
-        <div class="flex items-center justify-between mb-8 ">
-          <h2 class="text-xl font-extrabold text-gray-900">
+        <div class="flex items-center justify-between mb-6 md:mb-8">
+          <h2 class="text-base md:text-xl font-extrabold text-gray-900">
             Ceux-ci peuvent vous intéresser
           </h2>
 
@@ -128,24 +128,24 @@ useHead({
             <button
               @click="prevSlide"
               :disabled="!canPrev"
-              class="w-9 h-9 rounded-full flex items-center justify-center border transition-all duration-200"
+              class="w-8 h-8 md:w-9 md:h-9 rounded-full flex items-center justify-center border transition-all duration-200"
               :class="canPrev
                 ? 'border-gray-300 hover:bg-[#A8F000] hover:border-[#A8F000] text-gray-700'
                 : 'border-gray-200 text-gray-300 cursor-not-allowed'"
             >
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
               </svg>
             </button>
             <button
               @click="nextSlide"
               :disabled="!canNext"
-              class="w-9 h-9 rounded-full flex items-center justify-center border transition-all duration-200"
+              class="w-8 h-8 md:w-9 md:h-9 rounded-full flex items-center justify-center border transition-all duration-200"
               :class="canNext
                 ? 'border-gray-300 hover:bg-[#A8F000] hover:border-[#A8F000] text-gray-700'
                 : 'border-gray-200 text-gray-300 cursor-not-allowed'"
             >
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
               </svg>
             </button>
@@ -153,7 +153,7 @@ useHead({
         </div>
 
         <!-- Carrousel -->
-        <div class="overflow-hidden ">
+        <div class="overflow-hidden">
           <div
             class="flex gap-4 transition-transform duration-500 ease-out"
             :style="`transform: translateX(-${slideOffset}px)`"
@@ -161,28 +161,28 @@ useHead({
             <article
               v-for="(related, i) in relatedArticles"
               :key="related._id"
-              class="group rounded-2xl overflow-hidden flex flex-col shrink-0 cursor-pointer shadow-sm hover:shadow-xl transition-shadow duration-300 h-75"
-              style="width: 260px;"
+              class="group rounded-2xl overflow-hidden flex flex-col shrink-0 cursor-pointer shadow-sm hover:shadow-xl transition-shadow duration-300 h-[280px] md:h-[300px]"
+              style="width: 220px;"
             >
-              <div class="p-4 flex-1" :class="related.bgColor">
-                <div class="flex items-center gap-2 mb-3 flex-wrap">
-                  <span v-if="related.category" class="text-xs font-semibold px-2.5 py-1 rounded-full bg-white/70 text-gray-800">
+              <div class="p-3 md:p-4 flex-1" :class="related.bgColor">
+                <div class="flex items-center gap-2 mb-2 flex-wrap">
+                  <span v-if="related.category" class="text-xs font-semibold px-2 py-0.5 rounded-full bg-white/70 text-gray-800">
                     {{ related.category }}
                   </span>
                   <span
                     v-for="tag in related.tags"
                     :key="tag"
-                    class="text-xs font-semibold px-2.5 py-1 rounded-full bg-white/70 text-gray-800"
+                    class="text-xs font-semibold px-2 py-0.5 rounded-full bg-white/70 text-gray-800"
                   >
                     {{ tag }}
                   </span>
                 </div>
-                <h3 class="text-base font-extrabold leading-tight" :class="related.textColor">
+                <h3 class="text-sm md:text-base font-extrabold leading-tight" :class="related.textColor">
                   {{ related.title }}
                 </h3>
               </div>
 
-              <div class="relative overflow-hidden h-45">
+              <div class="relative overflow-hidden h-36 md:h-44">
                 <img
                   v-if="related.featuredImage"
                   :src="related.featuredImage"
