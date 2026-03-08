@@ -8,13 +8,13 @@
     <!-- Barre principale -->
     <div class="flex items-center  justify-between gap-6 px-6 py-3 max-w-7xl mx-auto  ">
       <!-- Logo -->
-      <div class="shrink-0 bg-[#A8F000] rounded-3xl px-4 py-1">
-        <img
-          src="/images/logoblog.png"
-          alt="Bannière"
-          class="w-24 object-cover rounded-lg"
-        />
-      </div>
+      <NuxtLink to="/" class="shrink-0 bg-[#A8F000] rounded-3xl px-4 py-1">
+  <img
+    src="/images/logoblog.png"
+    alt="Bannière"
+    class="w-24 object-cover rounded-lg"
+  />
+</NuxtLink>
 
       <!-- Liens desktop -->
       <ul class="hidden md:flex items-center gap-1 list-none m-0 p-0 bg-[#1a1a1a] px-4 py-2 rounded-3xl border">
