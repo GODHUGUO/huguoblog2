@@ -11,7 +11,7 @@ export async function connectDB(): Promise<Db> {
 
   client = new MongoClient(uri, {
     tls: true,
-    tlsAllowInvalidCertificates: true,  // ← corrige l'erreur SSL
+    tlsAllowInvalidCertificates: true,  
   })
 
   await client.connect()

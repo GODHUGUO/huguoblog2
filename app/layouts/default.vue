@@ -1,18 +1,24 @@
-<!-- app/layouts/default.vue -->
 <template>
   <div class="flex flex-col min-h-screen">
-    
-    <!-- Header commun à toutes les pages -->
-   <header_blog/>
-      <slot />  
-   <footer_blog/>
-    
+    <header_blog_admin v-if="isLoggedIn" />
+    <header_blog v-else />
+    <slot />  
+    <footer_blog/>
   </div>
 </template>
 
 <script setup>
+import { onAuthStateChanged } from 'firebase/auth'
+import header_blog from '~/components/header_blog.vue'
+import footer_blog from '~/components/footer_blog.vue'
+import header_blog_admin from '~/components/header_blog_admin.vue'
 
-import header_blog from '~/components/header_blog.vue';
-import footer_blog from '~/components/footer_blog.vue';
+const { $auth } = useNuxtApp()
+const isLoggedIn = ref(false)
 
+onMounted(() => {
+  onAuthStateChanged($auth, (user) => {
+    isLoggedIn.value = !!user
+  })
+})
 </script>
