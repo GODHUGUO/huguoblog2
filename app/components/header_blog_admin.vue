@@ -153,11 +153,11 @@
           </li>
           <li class="pt-2 border-t border-gray-100">
             <NuxtLink
-              to="/login"
+              to="/createarticle"
               class="flex items-center text-base font-medium text-gray-700 px-4 py-3 rounded-xl hover:bg-gray-50 transition-colors duration-150"
               @click="closeMenu"
             >
-              Se connecter
+             Dashboard
               <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
               </svg>
