@@ -78,7 +78,7 @@ useHead({
     <article v-else class="max-w-4xl mx-auto px-4 sm:px-8 md:px-16 lg:px-20 py-8 pt-16 md:pt-24">
 
       <!-- Date -->
-      <p class="text-sm md:text-lg text-gray-400 mb-3">
+      <p class="text-sm md:text-lg text-gray-400 mb-3 mt-8">
         Date de publication:
         <span class="font-bold text-[#111111]">{{ formatDate(article.publishDate) }}</span>
       </p>

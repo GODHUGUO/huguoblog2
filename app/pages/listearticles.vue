@@ -1,5 +1,5 @@
 <template>
-  <div class="px-16">
+<div class="px-2 lg:px-16">
 
     <!-- Chargement -->
     <div v-if="pending" class="flex justify-center py-20">
